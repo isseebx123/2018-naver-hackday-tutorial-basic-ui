@@ -1,11 +1,10 @@
-import SideBar from './component/SideBar'
-import Container from './component/Container'
-import ContactInformation from "./component/ContactInformation";
-import Popup from "./component/Popup";
+import SideBar from './component/SideBar';
+import Container from './component/Container';
+import ContactInformation from './component/ContactInformation';
+import Popup from './component/Popup';
+import React, { Component } from 'react';
 
-const React = require('react');
-
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
