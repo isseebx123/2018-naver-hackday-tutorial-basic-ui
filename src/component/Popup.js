@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class Popup extends React.Component {
   constructor(props) {
@@ -7,14 +7,14 @@ class Popup extends React.Component {
 
   render() {
     return (
-        <div style={divStyle}>
-          <h2>{this.props.activateFunction}</h2> <br/>
-          <h3>{this.props.activateFunction}</h3> <br/>
-          <input type="text"/> <br/>
-          <input type="button" value="저장"/>
-          <input type="button" value="취소"/>
-        </div>
-    )
+      <div style={divStyle}>
+        <h2>{this.props.activateFunction}</h2> <br />
+        <h3>{this.props.activateFunction}</h3> <br />
+        <input type="text" /> <br />
+        <input type="button" value="저장" />
+        <input type="button" value="취소" />
+      </div>
+    );
   }
 }
 
@@ -24,6 +24,6 @@ const divStyle = {
   left: '50%',
   backgroundColor: 'white',
   border: '1px solid black',
-}
+};
 
 export default Popup;

@@ -5,7 +5,19 @@
   },
   "extends": "airbnb",
   "rules": {
+    "quotes": ["error", "single", { "avoidEscape": true }],
     "linebreak-style": ["error", "windows"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // Form label must have associated control (jsx-a11y/label-has-for) at packages/ds-component-library/src/components/atoms/Label/Label.js:19:3:
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": ["Label"],
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ]
   }
 }

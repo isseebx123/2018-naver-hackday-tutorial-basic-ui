@@ -23,56 +23,65 @@ class App extends Component {
   }
 
   _setCheckContactsAndsetActivateFunction(func, contacts) {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       activateFunction: func,
       prevActivateFunction: prevState.activateFunction,
       checkContacts: contacts,
-    }))
+    }));
   }
 
   _setActivateFunction(func) {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       activateFunction: func,
       prevActivateFunction: prevState.activateFunction,
-    }))
+    }));
   }
 
-  _closePopupWindow() {
+  closePopupWindow() {
     this.setState({
       activateFunction: this.state.prevActivateFunction,
-    })
+    });
   }
 
   render() {
-    let insertContact = (this.state.activateFunction === 'InsertContact' ?
+    let insertContact =
+      this.state.activateFunction === 'InsertContact' ? (
         <ContactInformation
-            activateFunction={this.state.activateFunction}
-            _closePopupWindow={this._closePopupWindow.bind(this)}
-        /> : '');
+          activateFunction={this.state.activateFunction}
+          _closePopupWindow={this.closePopupWindow.bind(this)}
+        />
+      ) : (
+        ''
+      );
 
-    let popup = (this.state.activateFunction === 'ModifyGroup' ?
-            <Popup
-                activateFunction={this.state.activateFunction}
-                _closePopupWindow={this._closePopupWindow.bind(this)}
-            /> : ''
-    );
+    let popup =
+      this.state.activateFunction === 'ModifyGroup' ? (
+        <Popup
+          activateFunction={this.state.activateFunction}
+          _closePopupWindow={this.closePopupWindow.bind(this)}
+        />
+      ) : (
+        ''
+      );
 
     return (
-        <div style={divStyle}>
-          <nav style={headerStyle}>NAVER 스마트 주소록</nav>
-          <SideBar _setActivateFunction={(func) => {
-            this._setActivateFunction(func)
-          }}/>
-          <Container
-              groupName={this.state.groupName}
-              _setCheckContactsAndsetActivateFunction={(func, contacts) => {
-                this._setCheckContactsAndsetActivateFunction(func, contacts)
-              }}
-          />
-          {insertContact}
-          {popup}
-        </div>
-    )
+      <div style={divStyle}>
+        <nav style={headerStyle}>NAVER 스마트 주소록</nav>
+        <SideBar
+          _setActivateFunction={func => {
+            this._setActivateFunction(func);
+          }}
+        />
+        <Container
+          groupName={this.state.groupName}
+          _setCheckContactsAndsetActivateFunction={(func, contacts) => {
+            this._setCheckContactsAndsetActivateFunction(func, contacts);
+          }}
+        />
+        {insertContact}
+        {popup}
+      </div>
+    );
   }
 }
 
@@ -80,11 +89,11 @@ const headerStyle = {
   width: '100%',
   height: '50px',
   border: '1px solid black',
-}
+};
 
 const divStyle = {
   height: '100%',
   width: '100%',
-}
+};
 
 export default App;

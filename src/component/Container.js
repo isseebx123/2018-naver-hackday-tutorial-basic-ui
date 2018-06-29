@@ -1,5 +1,5 @@
-import React from 'react'
-import ContactPage from "./ContactPage";
+import React from 'react';
+import ContactPage from './ContactPage';
 
 class Container extends React.Component {
   constructor(props) {
@@ -8,16 +8,15 @@ class Container extends React.Component {
 
   render() {
     return (
-        <div style={containerStyle}>
-          <ContactPage
-              groupName={this.props.groupName}
-              _setCheckContactsAndsetActivateFunction={(func, contacts) => {
-                this.props._setCheckContactsAndsetActivateFunction(func,
-                    contacts)
-              }}
-          />
-        </div>
-    )
+      <div style={containerStyle}>
+        <ContactPage
+          groupName={this.props.groupName}
+          _setCheckContactsAndsetActivateFunction={(func, contacts) => {
+            this.props._setCheckContactsAndsetActivateFunction(func, contacts);
+          }}
+        />
+      </div>
+    );
   }
 }
 
@@ -31,6 +30,6 @@ const containerStyle = {
   display: 'block',
   width: 'auto',
   height: '100%',
-}
+};
 
 export default Container;
